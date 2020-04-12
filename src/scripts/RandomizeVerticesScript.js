@@ -6,6 +6,7 @@ function clamp(number, min = -1, max = 1) {
     return Math.max(min, Math.min(number, max));
 }
 
+
 export default class RandomizeVerticesScript extends Script {
     /**
      *
@@ -21,7 +22,7 @@ export default class RandomizeVerticesScript extends Script {
 
         window.addEventListener('click', () => {
             this.randomize();
-        })
+        });
     }
 
     onSetup() {
@@ -58,5 +59,6 @@ export default class RandomizeVerticesScript extends Script {
     }
 
     update() {
+
     }
 }

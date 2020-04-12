@@ -51744,6 +51744,7 @@
         return Math.max(min, Math.min(number, max));
     }
 
+
     class RandomizeVerticesScript extends Script {
         /**
          *
@@ -51793,6 +51794,7 @@
         }
 
         update() {
+
         }
     }
 
