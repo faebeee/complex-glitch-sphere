@@ -16,6 +16,12 @@ export default class RandomizeVerticesScript extends Script {
 
         /** @var {number} */
         this.amp = amplifier;
+
+        this.originalVerts = [];
+
+        window.addEventListener('click', () => {
+            this.randomize();
+        })
     }
 
     onSetup() {
@@ -24,18 +30,26 @@ export default class RandomizeVerticesScript extends Script {
 
         /** @var {THREEComponent} */
         this.threeComponent = this.entity.getComponents(THREEComponent)[0];
+        this.originalVerts = [...this.threeComponent.mesh.geometry.vertices].map((o) => {
+            return { ...o }
+        });
+        this.randomize();
+
+    }
+
+    randomize() {
         const geometry = this.threeComponent.mesh.geometry;
 
         const vLength = geometry.vertices.length;
         let counter = 0;
         for (let i = 0; i < vLength; i++) {
-            const accelerateX = clamp(geometry.vertices[i].x);
-            const accelerateY = clamp(geometry.vertices[i].y);
-            const accelerateZ = clamp(geometry.vertices[i].z);
+            const accelerateX = clamp(this.originalVerts[i].x);
+            const accelerateY = clamp(this.originalVerts[i].y);
+            const accelerateZ = clamp(this.originalVerts[i].z);
 
-            geometry.vertices[i].x += Math.random() * this.amp * accelerateX;
-            geometry.vertices[i].y += Math.random() * this.amp * accelerateY;
-            geometry.vertices[i].z += Math.random() * this.amp * accelerateZ;
+            geometry.vertices[i].x = this.originalVerts[i].x + Math.random() * this.amp * accelerateX;
+            geometry.vertices[i].y = this.originalVerts[i].y + Math.random() * this.amp * accelerateY;
+            geometry.vertices[i].z = this.originalVerts[i].z + Math.random() * this.amp * accelerateZ;
 
             counter += 3;
         }
