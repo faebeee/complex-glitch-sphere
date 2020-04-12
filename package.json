@@ -1,0 +1,28 @@
+{
+  "name": "project-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx rollup -c",
+    "dev": "npx rollup -w -c"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "complex-engine": "^7.1.8",
+    "es6-promise-polyfill": "^1.2.0",
+    "install": "^0.13.0",
+    "npm": "^6.11.3",
+    "pixi.js": "^5.1.2",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "three": "^0.108.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@pixi/polyfill": "^5.1.0",
+    "rollup": "^1.20.3"
+  }
+}
