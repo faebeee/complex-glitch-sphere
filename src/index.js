@@ -1,8 +1,8 @@
-import { Complex } from 'complex-engine';
-import MyScene from './Scene';
+import { Engine } from 'complex-engine';
+import MyScene from './scenes/Scene';
 
-const cx = Complex.getInstance();
-cx.loadScene(new MyScene());
+const cx = Engine.getInstance();
+cx.useScene(new MyScene());
 
 function render() {
     cx.update();

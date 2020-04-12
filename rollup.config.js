@@ -12,7 +12,10 @@ export default {
     plugins: [
         babel({
             //exclude: 'node_modules/**'
-            include: 'node_modules/complex-engine'
+            include: [
+                'node_modules/complex-engine',
+                'node_modules/complex-scripting'
+            ],
         }),
         resolve({
             browser: true,
