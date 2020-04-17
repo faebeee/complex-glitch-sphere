@@ -9,11 +9,11 @@ export default class MyScene extends Scene {
     constructor() {
         super('MyScene');
 
-        this.renderer = new THREE.WebGLRenderer({ alpha: true });
+        this.renderer = new THREE.WebGLRenderer({ alpha: false });
         this.renderer.setSize(window.innerWidth, innerHeight);
 
         this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        this.camera.position.set(0, 0, 80);
+        this.camera.position.set(0, 20, 80);
         this.camera.lookAt(0, 0, 0);
     }
 
@@ -34,26 +34,26 @@ export default class MyScene extends Scene {
     }
 
     createLight(x, y, z, color = '#fffff0') {
-        const light = new THREE.PointLight(color, 1, 200);
+        const light = new THREE.PointLight(color, 0.5, 100);
         light.castShadow = true;
         light.position.set(x, y, z);
         this.world.createEntity([new THREEComponent(light)]);
     }
 
     setupSphere() {
-        const segments = 8;
-        const geometry = new THREE.SphereGeometry(10, segments, segments);
-        const material = new THREE.MeshPhongMaterial({ color: '#51a9ff', flatShading: true });
+        const segments = 32;
+        const geometry = new THREE.SphereGeometry(15, segments, segments);
+        const material = new THREE.MeshPhongMaterial({ flatShading: true });
         const cube = new THREE.Mesh(geometry, material);
         cube.castShadow = true;
         cube.receiveShadow = true;
 
         this.world.createEntity([
             new THREEComponent(cube),
-            new ScriptComponent(new RandomizeVerticesScript(5)),
+            new ScriptComponent(new RandomizeVerticesScript(20)),
             new ScriptComponent(new RotationScript(
                 { x: 0, y: 0, z: 0 },
-                { x: Math.random(), y: Math.random(), z: Math.random() })
+                { x: 0, y: 0, z: 0 })
             ),
         ]);
     }
