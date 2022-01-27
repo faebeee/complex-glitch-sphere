@@ -13,7 +13,7 @@
     "complex-engine": "^7.1.9",
     "complex-scripting": "^7.0.4",
     "complex-threejs": "^4.0.3",
-    "three": "^0.108.0"
+    "three": "^0.137.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
